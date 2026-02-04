@@ -12,7 +12,7 @@ function getDonorfyInstance(country: string): string {
 	} else if (ukCountries.includes(country)) {
 		return "uk";
 	} else {
-		return "row"; // Rest of World
+		return "uk"; // Rest of World
 	}
 }
 
