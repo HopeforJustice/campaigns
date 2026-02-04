@@ -8,8 +8,28 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-apercu: var(--font-apercu);
+  --font-canela: var(--font-canela);
+  --font-lexend: var(--font-lexend);
+  --font-screamer: var(--font-screamer);
+  
+  /* Custom colors */
+  --color-hfj-red: #d6001c;
+  --color-hfj-red-tint1: #de3d52;
+  --color-hfj-red-tint2: #e57a88;
+  --color-hfj-red-tint3: #edb7be;
+  
+  --color-hfj-green: #5CAA7F;
+  
+  --color-hfj-yellow: #F79429;
+  --color-hfj-yellow-tint1: #F3C05D;
+  --color-hfj-yellow-tint2: #F0D193;
+  --color-hfj-yellow-tint3: #FFF5E0;
+  
+  --color-hfj-black: #1c2122;
+  --color-hfj-black-tint1: #646768;
+  --color-hfj-black-tint2: #acaeae;
+  --color-hfj-black-tint3: #FAFAFA;
 }
 
 @media (prefers-color-scheme: dark) {
