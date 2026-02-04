@@ -59,7 +59,7 @@ export default function HeroWithImageTiles() {
 									<p className="mt-8 text-lg font-apercu text-pretty leading-snug text-hfj-black-tint1 sm:max-w-md sm:text-xl/8 lg:max-w-none">
 										<strong>
 											Taking the simple step to stay informed can help change
-											lives!{" "}
+											lives in your local community!{" "}
 										</strong>
 										Our curated monthly newsletter is packed with the latest
 										news, resources, ways to get involved and stories from the
