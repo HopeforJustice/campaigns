@@ -61,18 +61,14 @@ export async function POST(request: NextRequest) {
 
 		// Step 1: Add/Update subscriber in Mailchimp
 		const mailchimpCountry = getMailchimpCountry(country);
-		try {
-			await addUpdateSubscriber(
-				email,
-				firstName,
-				"", // lastname
-				"subscribed",
-				mailchimpCountry,
-			);
-		} catch (mailchimpError: unknown) {
-			console.error("Mailchimp error:", mailchimpError);
-			// Continue even if Mailchimp fails
-		}
+
+		await addUpdateSubscriber(
+			email,
+			firstName,
+			"", // lastname
+			"subscribed",
+			mailchimpCountry,
+		);
 
 		// Step 2: Process with Donorfy
 		const donorfyInstance = getDonorfyInstance(country);
@@ -129,6 +125,14 @@ export async function POST(request: NextRequest) {
 				preferencesData,
 			);
 			console.log(`Preferences updated for: ${constituentId}`);
+
+			//add activity website form submission
+			const activityData = {
+				ExistingConstituentId: constituentId,
+				ActivityType: "Website Form Submission",
+			};
+			console.log(activityData);
+			await donorfy.addActivity(activityData);
 		}
 
 		return NextResponse.json(
