@@ -130,8 +130,10 @@ export async function POST(request: NextRequest) {
 			const activityData = {
 				ExistingConstituentId: constituentId,
 				ActivityType: "Website Form Submission",
+				Code1: `Campaigns Domain Sign Up Landing Page`,
+				Notes: `Campaigns Domain Sign Up Landing Page Subscribed to email updates`,
 			};
-			console.log(activityData);
+
 			await donorfy.addActivity(activityData);
 		}
 
