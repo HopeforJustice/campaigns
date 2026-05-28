@@ -4,15 +4,17 @@ import { getDonorfyClient } from "@/app/lib/donorfy/getDonorfyClient";
 
 // Helper function to determine Donorfy instance based on country
 function getDonorfyInstance(country: string): string {
-	const usCountries = ["United States"];
+	const usCountries = ["United States"]; //can add more
 	const ukCountries = ["United Kingdom"];
 
 	if (usCountries.includes(country)) {
 		return "us";
 	} else if (ukCountries.includes(country)) {
 		return "uk";
+	} else if (country === "Australia") {
+		return "au"; // Rest of World
 	} else {
-		return "uk"; // Rest of World
+		return "row";
 	}
 }
 
@@ -68,6 +70,7 @@ export async function POST(request: NextRequest) {
 			"", // lastname
 			"subscribed",
 			mailchimpCountry,
+			{ COUNTRY: country },
 		);
 
 		// Step 2: Process with Donorfy

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroWithImageTiles from "@/app/components/hero-sections/HeroWithImageTiles";
+import Header from "../components/layout/Header";
 
 export const metadata: Metadata = {
 	title: "Sign Up | Hope for Justice",
@@ -32,8 +33,11 @@ export const metadata: Metadata = {
 
 export default function SignUpPage() {
 	return (
-		<main>
-			<HeroWithImageTiles />
-		</main>
+		<>
+			<Header />
+			<main>
+				<HeroWithImageTiles />
+			</main>
+		</>
 	);
 }

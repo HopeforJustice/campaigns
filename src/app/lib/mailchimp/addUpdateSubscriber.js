@@ -8,22 +8,22 @@ export default async function addUpdateSubscriber(
 	lastname,
 	status,
 	country = "uk",
-	additionalMergeFields = {}
+	additionalMergeFields = {},
 ) {
 	try {
 		const mailchimp = getMailchimpConfig();
-		const list = await getList(country);
+		const list = await getList(country, true);
 
 		const subscriberHash = getSubscriberHash(email);
 
-		//email updates interests
-		//these are difficult to find, you have to use the api
-		let interests = {};
-		if (country === "uk") {
-			interests = { "60a2c211ce": true };
-		} else if (country === "us") {
-			interests = { b90c533e0c: true };
-		}
+		// //email updates interests
+		// //these are difficult to find, you have to use the api
+		// let interests = {};
+		// if (country === "uk") {
+		// 	interests = { "60a2c211ce": true };
+		// } else if (country === "us") {
+		// 	interests = { b90c533e0c: true };
+		// }
 
 		const memberData = {
 			email_address: email,
@@ -39,7 +39,7 @@ export default async function addUpdateSubscriber(
 		const result = await mailchimp.lists.setListMember(
 			list.id,
 			subscriberHash,
-			memberData
+			memberData,
 		);
 		return result;
 	} catch (error) {
@@ -71,14 +71,14 @@ export default async function addUpdateSubscriber(
 			// You might want to return a success status here or handle it differently
 			// For now, we'll still throw but with a clearer message
 			throw new Error(
-				`Mailchimp rate limiting, the email has been added to lists too frequently. Please try again later.`
+				`Mailchimp rate limiting, the email has been added to lists too frequently. Please try again later.`,
 			);
 		}
 
 		throw new Error(
 			`Add/Update Mailchimp subscriber failed, error: ${error.message}${
 				errorDetail ? ` - ${errorDetail}` : ""
-			}`
+			}`,
 		);
 	}
 }
