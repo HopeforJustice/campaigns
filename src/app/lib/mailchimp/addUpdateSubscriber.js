@@ -33,7 +33,6 @@ export default async function addUpdateSubscriber(
 				LNAME: lastname,
 				...additionalMergeFields,
 			},
-			interests,
 		};
 
 		const result = await mailchimp.lists.setListMember(
