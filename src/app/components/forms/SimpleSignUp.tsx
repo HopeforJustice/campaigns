@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
 	Dialog,
@@ -225,28 +226,16 @@ export default function SimpleSignUp() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-	useEffect(() => {
-		// Fetch country from Vercel geo headers
-		const fetchCountry = async () => {
-			try {
-				const response = await fetch("/api/geo");
-				const data = await response.json();
-				if (data.country) {
-					// Convert country code to country name
-					const countryData = countries.find((c) => c.code === data.country);
-					if (countryData) {
-						setCountry(countryData.name);
-					}
-				}
-			} catch (error) {
-				console.error("Failed to fetch country:", error);
-			}
-		};
+	const detectedCountryCode = useGeoCountry();
 
-		if (open && !country) {
-			fetchCountry();
+	useEffect(() => {
+		if (open && !country && detectedCountryCode) {
+			const countryData = countries.find((c) => c.code === detectedCountryCode);
+			if (countryData) {
+				setCountry(countryData.name);
+			}
 		}
-	}, [open, country]);
+	}, [open, country, detectedCountryCode]);
 
 	const validateEmail = (email: string): boolean => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -77,6 +77,43 @@ export default function SignUpPage() {
 					</div>
 				</div>
 			</div>
+
+			{/* Fundraise for freedom */}
+			<div className="p-2 lg:p-4 pt-0 lg:pt-0">
+				<div className="w-full bg-[#ACD8BA] rounded-4xl lg:rounded-[60px] flex flex-col items-center justify-center space-y-8 p-6 py-10 lg:py-14">
+					<div className="w-full max-w-2xl mx-auto">
+						<img src="fundraiseforfreedom.svg" alt="" />
+					</div>
+					<p className="text-center max-w-3xl text-[#425252]">
+						Impact against this overwhelming issue is possible, but only when we
+						come together and take action – our work depends on a whole movement
+						of ordinary people who are getting equipped and educated and being
+						vigilant in their communities, and giving generously to empower and
+						expand this work into new areas to reach more people.
+					</p>
+					<img src="/50-ways-preview.png" alt="" />
+					{/* buttons */}
+					<div className="flex flex-wrap gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
+						<a
+							href="#"
+							className="bg-[#FEF5DE] text-[#ACD8BA] px-8 py-4 rounded-lg  hover:bg-[#FEF5DE]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
+						>
+							Download 50 ways to make an impact
+						</a>
+						<a
+							href="#"
+							className="bg-[#FA8F53] text-white px-8 py-4 rounded-lg  hover:bg-[#FA8F53]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
+						>
+							Start your fundraiser
+						</a>
+					</div>
+					{/* matchfunding disclaimer */}
+					<p className="mt-4 text-sm text-center text-white">
+						*All donations will be doubled up to $175,000 thanks to a generous
+						donor!
+					</p>
+				</div>
+			</div>
 		</main>
 	);
 }

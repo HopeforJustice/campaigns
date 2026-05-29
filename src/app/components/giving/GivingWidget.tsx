@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import clsx from "clsx";
+import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -251,22 +252,15 @@ export default function GivingWidget({
 	);
 	const [isCurrencyModalOpen, setIsCurrencyModalOpen] = useState(false);
 
-	// Detect currency from geo on mount (runs once)
+	const detectedCountry = useGeoCountry();
+
+	// Update currency when geo detection resolves (runs once)
 	useEffect(() => {
-		const fetchCurrency = async () => {
-			try {
-				const res = await fetch("/api/geo");
-				const data = await res.json();
-				const code = getCountryCurrency(data.country ?? null);
-				setCurrencyConfig(mergeCurrency(code, amountOverrides));
-			} catch {
-				setCurrencyConfig(mergeCurrency("GBP", amountOverrides));
-			}
-		};
-		fetchCurrency();
+		const code = getCountryCurrency(detectedCountry);
+		setCurrencyConfig(mergeCurrency(code, amountOverrides));
 		// amountOverrides intentionally omitted — geo runs once on mount
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [detectedCountry]);
 
 	const handleCurrencySelect = (code: CurrencyCode) => {
 		setCurrencyConfig(mergeCurrency(code, amountOverrides));
@@ -296,7 +290,14 @@ export default function GivingWidget({
 		: (currencyConfig.amounts[selectedIndex]?.reason ?? "");
 
 	const doubledLabel = (() => {
-		if (!matchFunding || isCustomSelected) return null;
+		if (!matchFunding) return null;
+		if (isCustomSelected) {
+			if (!customAmount || Number(customAmount) <= 0) return null;
+			const doubled = Number(customAmount) * 2;
+			return currencyConfig.symbolAfter
+				? `${doubled} ${currencyConfig.symbol}`
+				: `${currencyConfig.symbol}${doubled}`;
+		}
 		const amount = currencyConfig.amounts[selectedIndex]?.amount;
 		if (amount == null) return null;
 		const doubled = amount * 2;
@@ -412,16 +413,29 @@ export default function GivingWidget({
 			)}
 
 			{/* Donate button */}
-			<a
-				href={donateUrl}
-				className={clsx(
-					"block w-full rounded-xl py-5 text-center text-xl font-bold transition-opacity xl:text-2xl hover:opacity-90",
-					!isValidAmount && "opacity-50 pointer-events-none",
+			<div className="flex flex-col justify-center items-center">
+				<a
+					href={donateUrl}
+					className={clsx(
+						"block w-full rounded-xl py-5 text-center text-xl font-bold transition-opacity xl:text-2xl hover:opacity-90",
+						!isValidAmount && "opacity-50 pointer-events-none",
+					)}
+					style={{
+						backgroundColor: selectedButtonColor,
+						color: buttonTextColor,
+					}}
+				>
+					{currentLabel ? `Donate ${currentLabel}` : "Select an amount"}
+				</a>
+				{matchFunding && doubledLabel && (
+					<p
+						className="text-sm text-center px-4 py-1 rounded-lg -mt-2 z-10"
+						style={{ backgroundColor: buttonColor, color: buttonTextColor }}
+					>
+						Doubled to {doubledLabel}
+					</p>
 				)}
-				style={{ backgroundColor: selectedButtonColor, color: buttonTextColor }}
-			>
-				{currentLabel ? `Donate ${currentLabel}` : "Select an amount"}
-			</a>
+			</div>
 
 			{/* Change currency link */}
 			<div className="text-center">
