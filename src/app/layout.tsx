@@ -58,7 +58,7 @@ export default function RootLayout({
 		<html lang="en">
 			{isProduction && <GoogleTagManager gtmId="GTM-T7PSM4L" />}
 			<body
-				className={`${apercu.variable} ${canela.variable} ${lexend.variable} ${screamer.variable} antialiased font-apercu bg-[#212322]`}
+				className={`${apercu.variable} ${canela.variable} ${lexend.variable} ${screamer.variable} antialiased font-apercu bg-[#ffffff]`}
 			>
 				{/* <Header /> */}
 				{children}

@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="bg-[#212322] text-white p-8 lg:p-12">
+		<footer className="bg-[#212322] text-white p-8 lg:p-12 max-w-[1920px] mx-auto">
 			<p className="text-xs text-white/90">
 				We use cookies to help make this website better. Here’s our{" "}
 				<a

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Hero from "./components/hero";
 import GivingWidget from "../components/giving/GivingWidget";
 import { useGeoCountry } from "@/app/hooks/useGeoCountry";
+import sendGTMEvent from "../lib/gtm/sendGTMEvent";
 
 //TODO - add metadata
 // export const metadata: Metadata = {
@@ -98,12 +99,18 @@ export default function SummerCampaign() {
 					{/* buttons */}
 					<div className="flex flex-wrap gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
 						<a
-							href="#"
+							href={
+								country === "US"
+									? "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-US.pdf"
+									: "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-UK.pdf"
+							}
 							className="bg-[#FEF5DE] text-[#ACD8BA] px-8 py-4 rounded-lg  hover:bg-[#FEF5DE]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
+							download
 						>
 							Download 50 ways to make an impact
 						</a>
 						<a
+							onClick={() => sendGTMEvent("start_fundraiser_click")}
 							href={
 								country === "US"
 									? "https://giving.gofundme.com/campaign/790229/landing"
