@@ -36,7 +36,7 @@ import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 // 	},
 // };
 
-export default function SignUpPage() {
+export default function SummerCampaign() {
 	const country = useGeoCountry();
 	return (
 		<main className="bg-white font-apercu font-bold overflow-x-hidden max-w-480 mx-auto">
