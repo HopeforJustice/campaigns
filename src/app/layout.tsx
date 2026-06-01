@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./components/layout/Header";
+import Header from "@/app/components/layout/Header";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Footer from "@/app/components/layout/Footer";
 
 const apercu = localFont({
 	src: [
@@ -61,6 +62,7 @@ export default function RootLayout({
 			>
 				{/* <Header /> */}
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

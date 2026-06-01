@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Hero from "./components/hero";
 import GivingWidget from "../components/giving/GivingWidget";
+import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 
 //TODO - add metadata
 // export const metadata: Metadata = {
@@ -35,13 +36,14 @@ import GivingWidget from "../components/giving/GivingWidget";
 // };
 
 export default function SignUpPage() {
+	const country = useGeoCountry();
 	return (
 		<main className="bg-white font-apercu font-bold overflow-x-hidden max-w-480 mx-auto">
 			{/* Hero (campaign specific) */}
 			<Hero />
 
 			{/* Giving */}
-			<div className="w-full flex pb-4">
+			<div id="donate" className="w-full flex pb-4">
 				{/* back of head image */}
 				<div className="w-2/5 hidden lg:block rounded-r-[60px] overflow-hidden">
 					<Image
@@ -79,7 +81,7 @@ export default function SignUpPage() {
 			</div>
 
 			{/* Fundraise for freedom */}
-			<div className="p-2 lg:p-4 pt-0 lg:pt-0">
+			<div id="fundraiseforfreedom" className="p-2 lg:p-4 pt-0 lg:pt-0">
 				<div className="w-full bg-[#ACD8BA] rounded-4xl lg:rounded-[60px] flex flex-col items-center justify-center space-y-8 p-6 py-10 lg:py-14">
 					<div className="w-full max-w-2xl mx-auto">
 						<img src="fundraiseforfreedom.svg" alt="" />
@@ -91,7 +93,7 @@ export default function SignUpPage() {
 						vigilant in their communities, and giving generously to empower and
 						expand this work into new areas to reach more people.
 					</p>
-					<img src="/50-ways-preview.png" alt="" />
+					<img src="/50waysmockup.png" alt="" />
 					{/* buttons */}
 					<div className="flex flex-wrap gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
 						<a
@@ -101,14 +103,18 @@ export default function SignUpPage() {
 							Download 50 ways to make an impact
 						</a>
 						<a
-							href="#"
+							href={
+								country === "US"
+									? "https://giving.gofundme.com/campaign/790229/landing"
+									: "https://www.justgiving.com/campaign/50daysofhope"
+							}
 							className="bg-[#FA8F53] text-white px-8 py-4 rounded-lg  hover:bg-[#FA8F53]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
 						>
 							Start your fundraiser
 						</a>
 					</div>
 					{/* matchfunding disclaimer */}
-					<p className="mt-4 text-sm text-center text-white">
+					<p className="mt-4 text-sm text-center text-[#425252]">
 						*All donations will be doubled up to $175,000 thanks to a generous
 						donor!
 					</p>

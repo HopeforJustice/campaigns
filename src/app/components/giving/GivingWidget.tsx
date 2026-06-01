@@ -432,7 +432,7 @@ export default function GivingWidget({
 						className="text-sm text-center px-4 py-1 rounded-lg -mt-2 z-10"
 						style={{ backgroundColor: buttonColor, color: buttonTextColor }}
 					>
-						Doubled to {doubledLabel}
+						Doubled to {doubledLabel}*
 					</p>
 				)}
 			</div>

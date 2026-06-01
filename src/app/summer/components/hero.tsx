@@ -66,14 +66,14 @@ export default function Hero() {
 				{/* hero buttons */}
 				<div className="flex gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
 					<a
-						href="#"
+						href="#fundraiseforfreedom"
 						className="bg-[#FEF5DE] text-[#FA8F53] px-8 py-4 rounded-lg  hover:bg-[#FEF5DE]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
 					>
 						Fundraise
 					</a>
 					<div className="flex justify-center flex-col items-center">
 						<a
-							href="#"
+							href="#donate"
 							className="bg-[#d21220] text-white px-8 py-4 rounded-lg  hover:bg-[#d21220]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
 						>
 							Donate
