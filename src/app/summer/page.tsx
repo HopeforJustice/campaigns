@@ -104,10 +104,10 @@ export default function SummerCampaign() {
 									? "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-US.pdf"
 									: "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-UK.pdf"
 							}
-							className="bg-[#FEF5DE] text-[#ACD8BA] px-8 py-4 rounded-lg  hover:bg-[#FEF5DE]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
+							className="bg-[#FEF5DE] text-[#425252] px-8 py-4 rounded-lg  hover:bg-[#FEF5DE]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
 							download
 						>
-							Download 50 ways to make an impact
+							Download the booklet
 						</a>
 						<a
 							onClick={() => sendGTMEvent("start_fundraiser_click")}
@@ -122,9 +122,11 @@ export default function SummerCampaign() {
 						</a>
 					</div>
 					{/* matchfunding disclaimer */}
-					<p className="mt-4 text-sm text-center text-[#425252]">
-						*All donations will be doubled up to $175,000 thanks to a generous
-						donor!
+					<p className="mt-4 text-sm text-center text-[#425252] max-w-2xl mx-auto">
+						*Gifts given before the end of August 2026 via this webpage, or via
+						a JustGiving or GoFundMe fundraising page associated with the 50
+						Days of Hope campaign, will be doubled, up to a global total of
+						£130,000 / $175,000
 					</p>
 				</div>
 			</div>
