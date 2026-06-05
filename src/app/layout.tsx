@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/app/components/layout/Header";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "@/app/components/layout/Footer";
 
@@ -43,9 +42,13 @@ const screamer = localFont({
 });
 
 function getMetadataBase() {
-	const fallbackUrl = "https://hopeforjustice.org";
+	const fallbackUrl = "https://campaigns.hopeforjustice.org";
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+	const vercelUrl = process.env.VERCEL_URL
+		? `https://${process.env.VERCEL_URL}`
+		: undefined;
 	try {
-		return new URL(process.env.NEXT_PUBLIC_SITE_URL ?? fallbackUrl);
+		return new URL(siteUrl ?? vercelUrl ?? fallbackUrl);
 	} catch {
 		return new URL(fallbackUrl);
 	}
