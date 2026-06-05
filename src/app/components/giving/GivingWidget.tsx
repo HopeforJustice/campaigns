@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import clsx from "clsx";
+import { useSearchParams } from "next/navigation";
 import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -251,6 +252,7 @@ export default function GivingWidget({
 		DEFAULT_CURRENCIES.GBP,
 	);
 	const [isCurrencyModalOpen, setIsCurrencyModalOpen] = useState(false);
+	const searchParams = useSearchParams();
 
 	const detectedCountry = useGeoCountry();
 
@@ -315,6 +317,10 @@ export default function GivingWidget({
 		const parts = [`amount=${encodeURIComponent(currentAmountValue)}`];
 		parts.push(`currency=${currencyConfig.code.toLowerCase()}`);
 		if (campaign) parts.push(`campaign=${encodeURIComponent(campaign)}`);
+		for (const key of ["tlxs", "tlxc", "tlxm"] as const) {
+			const value = searchParams.get(key);
+			if (value) parts.push(`${key}=${encodeURIComponent(value)}`);
+		}
 		parts.push("givingFrequency=once");
 		return `https://donate.hopeforjustice.org/?${parts.join("&")}`;
 	})();
