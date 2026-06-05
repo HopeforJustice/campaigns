@@ -41,23 +41,10 @@ const screamer = localFont({
 	variable: "--font-screamer",
 });
 
-function getMetadataBase() {
-	const fallbackUrl = "https://campaigns.hopeforjustice.org";
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-	const vercelUrl = process.env.VERCEL_URL
-		? `https://${process.env.VERCEL_URL}`
-		: undefined;
-	try {
-		return new URL(siteUrl ?? vercelUrl ?? fallbackUrl);
-	} catch {
-		return new URL(fallbackUrl);
-	}
-}
-
 export const metadata: Metadata = {
 	title: "Hope for Justice",
 	description: "",
-	metadataBase: getMetadataBase(),
+	metadataBase: "https://campaigns.hopeforjustice.org",
 };
 
 const isProduction = process.env.VERCEL_ENV === "production";
