@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import SummerCampaignClient from "./SummerCampaignClient";
 
 //TODO - add metadata
@@ -34,5 +35,9 @@ export const metadata: Metadata = {
 };
 
 export default function SummerCampaign() {
-	return <SummerCampaignClient />;
+	return (
+		<Suspense fallback={null}>
+			<SummerCampaignClient />
+		</Suspense>
+	);
 }
