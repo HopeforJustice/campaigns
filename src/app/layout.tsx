@@ -42,9 +42,19 @@ const screamer = localFont({
 	variable: "--font-screamer",
 });
 
+function getMetadataBase() {
+	const fallbackUrl = "https://hopeforjustice.org";
+	try {
+		return new URL(process.env.NEXT_PUBLIC_SITE_URL ?? fallbackUrl);
+	} catch {
+		return new URL(fallbackUrl);
+	}
+}
+
 export const metadata: Metadata = {
 	title: "Hope for Justice",
 	description: "",
+	metadataBase: getMetadataBase(),
 };
 
 const isProduction = process.env.VERCEL_ENV === "production";
