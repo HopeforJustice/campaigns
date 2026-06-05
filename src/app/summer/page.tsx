@@ -8,34 +8,32 @@ import { useGeoCountry } from "@/app/hooks/useGeoCountry";
 import sendGTMEvent from "../lib/gtm/sendGTMEvent";
 
 //TODO - add metadata
-// export const metadata: Metadata = {
-// 	title: "Sign Up | Hope for Justice",
-// 	description:
-// 		"Join the Hope for Justice mailing list for updates and practical tips to make the biggest impact for victims and survivors. Sign up to our email updates today!",
-// 	openGraph: {
-// 		title: "Sign Up | Hope for Justice",
-// 		description:
-// 			"Join the Hope for Justice mailing list for updates and practical tips to make the biggest impact for victims and survivors. Sign up to our email updates today!",
-// 		type: "website",
-// 		images: [
-// 			{
-// 				url: "https://hopeforjustice.org/wp-content/uploads/2022/12/sign-up-to-our-mailing-list.jpg",
-// 				width: 1200,
-// 				height: 630,
-// 				alt: "Sign up to our newsletter",
-// 			},
-// 		],
-// 	},
-// 	twitter: {
-// 		card: "summary_large_image",
-// 		title: "Sign Up | Hope for Justice",
-// 		description:
-// 			"Join the Hope for Justice mailing list for updates and practical tips to make the biggest impact for victims and survivors. Sign up to our email updates today!",
-// 		images: [
-// 			"https://hopeforjustice.org/wp-content/uploads/2022/12/sign-up-to-our-mailing-list.jpg",
-// 		],
-// 	},
-// };
+export const metadata: Metadata = {
+	title: "50 days of hope | Hope for Justice",
+	description:
+		"In summer 2026, let’s raise funds to change lives! We say: Impact on human trafficking IS possible. We choose hope. We choose to give our time and energy so others can live in freedom and dignity.",
+	openGraph: {
+		title: "50 days of hope | Hope for Justice",
+		description:
+			"In summer 2026, let’s raise funds to change lives! We say: Impact on human trafficking IS possible. We choose hope. We choose to give our time and energy so others can live in freedom and dignity.",
+		type: "website",
+		images: [
+			{
+				url: "/hfj-run.jpg",
+				width: 1200,
+				height: 630,
+				alt: "Sign up to our newsletter",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "50 days of hope | Hope for Justice",
+		description:
+			"In summer 2026, let’s raise funds to change lives! We say: Impact on human trafficking IS possible. We choose hope. We choose to give our time and energy so others can live in freedom and dignity.",
+		images: ["/hfj-run.jpg"],
+	},
+};
 
 export default function SummerCampaign() {
 	const country = useGeoCountry();
