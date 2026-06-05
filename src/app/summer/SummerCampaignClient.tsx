@@ -68,6 +68,7 @@ export default function SummerCampaignClient() {
 					{/* buttons */}
 					<div className="flex flex-wrap gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
 						<a
+							onClick={() => sendGTMEvent("file_download")}
 							href={
 								country === "US"
 									? "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-US.pdf"
