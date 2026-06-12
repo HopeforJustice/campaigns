@@ -11,6 +11,8 @@ export default function SummerCampaignClient() {
 	const country = useGeoCountry();
 
 	useEffect(() => {
+		const timeoutIds: number[] = [];
+
 		const scrollToHashTarget = () => {
 			const hash = window.location.hash;
 			if (!hash) return;
@@ -25,6 +27,18 @@ export default function SummerCampaignClient() {
 				const element = document.getElementById(targetId);
 				if (element) {
 					element.scrollIntoView({ behavior: "auto", block: "start" });
+
+					// Re-apply alignment after potential layout shift from late-loading assets.
+					timeoutIds.push(
+						window.setTimeout(() => {
+							element.scrollIntoView({ behavior: "auto", block: "start" });
+						}, 200),
+					);
+					timeoutIds.push(
+						window.setTimeout(() => {
+							element.scrollIntoView({ behavior: "auto", block: "start" });
+						}, 600),
+					);
 					return;
 				}
 
@@ -39,9 +53,12 @@ export default function SummerCampaignClient() {
 
 		scrollToHashTarget();
 		window.addEventListener("hashchange", scrollToHashTarget);
+		window.addEventListener("load", scrollToHashTarget);
 
 		return () => {
 			window.removeEventListener("hashchange", scrollToHashTarget);
+			window.removeEventListener("load", scrollToHashTarget);
+			timeoutIds.forEach((id) => window.clearTimeout(id));
 		};
 	}, []);
 
