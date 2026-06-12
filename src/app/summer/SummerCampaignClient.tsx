@@ -30,7 +30,7 @@ export default function SummerCampaignClient() {
 
 				attempts += 1;
 				if (attempts < maxAttempts) {
-					window.setTimeout(tryScroll, 100);
+					window.setTimeout(tryScroll, 0);
 				}
 			};
 
