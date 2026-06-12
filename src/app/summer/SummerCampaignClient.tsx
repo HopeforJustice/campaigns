@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Hero from "./components/hero";
 import GivingWidget from "../components/giving/GivingWidget";
@@ -8,6 +9,42 @@ import sendGTMEvent from "../lib/gtm/sendGTMEvent";
 
 export default function SummerCampaignClient() {
 	const country = useGeoCountry();
+
+	useEffect(() => {
+		const scrollToHashTarget = () => {
+			const hash = window.location.hash;
+			if (!hash) return;
+
+			const targetId = decodeURIComponent(hash.slice(1));
+			if (!targetId) return;
+
+			let attempts = 0;
+			const maxAttempts = 12;
+
+			const tryScroll = () => {
+				const element = document.getElementById(targetId);
+				if (element) {
+					element.scrollIntoView({ behavior: "auto", block: "start" });
+					return;
+				}
+
+				attempts += 1;
+				if (attempts < maxAttempts) {
+					window.setTimeout(tryScroll, 100);
+				}
+			};
+
+			tryScroll();
+		};
+
+		scrollToHashTarget();
+		window.addEventListener("hashchange", scrollToHashTarget);
+
+		return () => {
+			window.removeEventListener("hashchange", scrollToHashTarget);
+		};
+	}, []);
+
 	return (
 		<main className="bg-white font-apercu font-bold overflow-x-hidden max-w-480 mx-auto">
 			{/* Hero (campaign specific) */}
