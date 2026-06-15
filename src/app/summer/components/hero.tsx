@@ -53,7 +53,8 @@ export default function Hero() {
 				{/* hero text */}
 				<div className="px-4 text-center mt-6 max-w-[70ch] mx-auto">
 					<p className="text-xl lg:text-2xl xl:text-3xl text-[#FFF5DE] lg:my-6">
-						For the 50+ million people affected by <br />
+						For the 50+ million people affected by{" "}
+						<br className="hidden sm:block" />
 						modern slavery & human trafﬁcking
 					</p>
 					<p className="text-[#FFF5DE] mt-4">
