@@ -118,7 +118,17 @@ export default function SummerCampaignClient() {
 						vigilant in their communities, and giving generously to empower and
 						expand this work into new areas to reach more people.
 					</p>
-					<img src="/50waysmockup.png" alt="" />
+					<a
+						onClick={() => sendGTMEvent("file_download")}
+						href={
+							country === "US"
+								? "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-US.pdf"
+								: "https://hopeforjustice.org/wp-content/uploads/2026/06/50-Ways-to-Make-an-Impact-Booklet-Digital-UK.pdf"
+						}
+						download
+					>
+						<img src="/50waysmockup.png" alt="" />
+					</a>
 					{/* buttons */}
 					<div className="flex flex-wrap gap-4 justify-center items-start mt-6 lg:text-lg xl:text-xl">
 						<a
