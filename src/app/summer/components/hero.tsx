@@ -77,7 +77,7 @@ export default function Hero() {
 							href="#donate"
 							className="bg-[#d21220] text-white px-8 py-4 rounded-lg  hover:bg-[#d21220]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
 						>
-							Donate
+							Give
 						</a>
 						<p className="bg-[#FEBC00] text-white rounded-lg text-sm text-center px-2 py-1 -mt-2">
 							Every gift doubled*

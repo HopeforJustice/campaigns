@@ -431,7 +431,7 @@ export default function GivingWidget({
 						color: buttonTextColor,
 					}}
 				>
-					{currentLabel ? `Donate ${currentLabel}` : "Select an amount"}
+					{currentLabel ? `Give ${currentLabel}` : "Select an amount"}
 				</a>
 				{matchFunding && doubledLabel && (
 					<p
