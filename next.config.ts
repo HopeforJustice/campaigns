@@ -1,8 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+	reactCompiler: true,
+	async rewrites() {
+		return {
+			beforeFiles: [],
+			afterFiles: [],
+			fallback: [
+				{
+					source: "/:path*",
+					destination: "https://hfj2.wpenginepowered.com/:path*",
+				},
+			],
+		};
+	},
 };
 
 export default nextConfig;
