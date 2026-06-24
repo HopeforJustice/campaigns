@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
 				{
 					source: "/:path*",
 					destination: "https://testfall.wpenginepowered.com/:path*",
+					headers: [
+						{
+							key: "X-Forwarded-Host",
+							value: "campaigns.hopeforjustice.org",
+						},
+					],
 				},
 			],
 		};
