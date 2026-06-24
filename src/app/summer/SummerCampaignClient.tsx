@@ -109,7 +109,7 @@ export default function SummerCampaignClient() {
 			<div id="fundraiseforfreedom" className="p-2 lg:p-4 pt-0 lg:pt-0">
 				<div className="w-full bg-[#ACD8BA] rounded-4xl lg:rounded-[60px] flex flex-col items-center justify-center space-y-8 p-6 py-10 lg:py-14">
 					<div className="w-full max-w-2xl mx-auto">
-						<img src="fundraiseforfreedom.svg" alt="" />
+						<img src="/fundraiseforfreedom.svg" alt="" />
 					</div>
 					<p className="text-center max-w-3xl text-[#425252]">
 						Impact against this overwhelming issue is possible, but only when we
