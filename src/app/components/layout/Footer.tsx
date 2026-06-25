@@ -34,15 +34,15 @@ export default function Footer() {
 			<div className="flex flex-wrap justify-between gap-6 items-center mt-8">
 				<div>
 					<img
-						src="logo-straight-white.svg"
+						src="/logo-straight-white.svg"
 						alt=""
 						className="max-w-48 lg:max-w-64"
 					/>
 				</div>
 				<div className="flex flex-wrap gap-4 justify-center items-center h-10">
-					<img className="h-full" src="candid.png" alt="" />
-					<img className="h-full" src="fundraising-reg.png" alt="" />
-					<img className="h-full" src="coalition.png" alt="" />
+					<img className="h-full" src="/candid.png" alt="" />
+					<img className="h-full" src="/fundraising-reg.png" alt="" />
+					<img className="h-full" src="/coalition.png" alt="" />
 				</div>
 			</div>
 		</footer>
