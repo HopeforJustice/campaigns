@@ -10,8 +10,7 @@ const nextConfig: NextConfig = {
 			fallback: [
 				{
 					source: "/:path*",
-					destination:
-						"https://webhook.site/c5c1f228-02dd-41da-a196-4b614bf9ff72/:path*",
+					destination: "https://testfall.wpenginepowered.com/:path*",
 				},
 			],
 		};
