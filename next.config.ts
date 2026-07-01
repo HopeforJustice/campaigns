@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
 			fallback: [
 				{
 					source: "/:path*",
-					destination: "https://hopeforjustice.org/:path*",
+					destination: "https://testfall.wpenginepowered.com/:path*",
 				},
 			],
 		};
