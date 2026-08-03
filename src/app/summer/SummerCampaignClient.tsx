@@ -97,7 +97,6 @@ export default function SummerCampaignClient() {
 								textColor="#FA8F53"
 								buttonColor="#FAA36D"
 								selectedButtonColor="#D6001C"
-								matchFunding={true}
 								campaign="2026 Summer"
 							/>
 						</div>
@@ -155,13 +154,6 @@ export default function SummerCampaignClient() {
 							Start your fundraiser
 						</a>
 					</div>
-					{/* matchfunding disclaimer */}
-					<p className="mt-4 text-sm text-center text-[#425252] max-w-2xl mx-auto">
-						*Gifts given before the end of August 2026 via this webpage, or via
-						a JustGiving or GoFundMe fundraising page associated with the 50
-						Days of Hope campaign, will be doubled, up to a global total of
-						£130,000 / $175,000
-					</p>
 				</div>
 			</div>
 		</main>

@@ -72,17 +72,12 @@ export default function Hero() {
 					>
 						Fundraise
 					</a>
-					<div className="flex justify-center flex-col items-center">
-						<a
-							href="#donate"
-							className="bg-[#d21220] text-white px-8 py-4 rounded-lg  hover:bg-[#d21220]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
-						>
-							Give
-						</a>
-						<p className="bg-[#FEBC00] text-white rounded-lg text-sm text-center px-2 py-1 -mt-2">
-							Every gift doubled*
-						</p>
-					</div>
+					<a
+						href="#donate"
+						className="bg-[#d21220] text-white px-8 py-4 rounded-lg  hover:bg-[#d21220]/90 transition font-bold min-w-24 lg:min-w-38 text-center"
+					>
+						Give
+					</a>
 				</div>
 
 				{/* hero images */}
