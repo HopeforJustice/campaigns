@@ -5,6 +5,18 @@ const nextConfig: NextConfig = {
 	trailingSlash: true,
 	async rewrites() {
 		return {
+			beforeFiles: [
+				{
+					source: "/wp-admin",
+					destination:
+						"https://testfall.wpenginepowered.com/wp-admin/index.php",
+				},
+				{
+					source: "/wp-admin/",
+					destination:
+						"https://testfall.wpenginepowered.com/wp-admin/index.php",
+				},
+			],
 			fallback: [
 				{
 					source: "/:path*",
